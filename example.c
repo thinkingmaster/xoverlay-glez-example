@@ -26,8 +26,9 @@ int main()
     float x = 500;
     float y = 500;
     
-    int mx = 1;
-    int my = 1;
+    int mx = 0;
+    int my = 0;
+    float deg = 0;
     
     // Prepare the colors
     glez_rgba_t purple = glez_rgba(255, 0, 128, 255);
@@ -48,7 +49,9 @@ int main()
         
         glez_rect(100, 300, 200, 100, purple);
         glez_rect_outline(500, 300, 200, 100, white, 2);
-        glez_rect_textured(x, y, tw, th, white, texture, 0, 0, tw, th);
+        glez_rect_textured(x, y, tw, th, white, texture, 0, 0, tw, th, deg);
+        deg += 0.01f;
+        if (deg >= 360.0f) deg = 0;
 
         glez_string_with_outline(100, 100, "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 123456789 !@#$%^&*()", font, white, black, 1.5f, 0, NULL, NULL);
         glez_string(100, 150, "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 123456789 !@#$%^&*()", font, purple, NULL, NULL);
