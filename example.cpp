@@ -37,6 +37,8 @@ int main()
     
     while (1)
     {
+        deg += 0.005f;
+    
         x += 1 * mx;
         y += 1 * my;
         
@@ -49,10 +51,32 @@ int main()
         glez::begin();
         
         glez::draw::rect(100, 100, 200, 200, glez::color::green);
-        glez::draw::rect_textured(150, 150, 100, 40, glez::color::white, texture, 0, 0, tw, th);
-        //glez::draw::rect_textured(150, 200, 50, 50, glez::color::white, texture, 0, 0, 12, 12);
+        glez::draw::rect_textured(150, 150, 100, 100, glez::color::white, texture, 0, 0, tw, th, deg);
         glez::draw::string(100, 100, "Testing", font, glez::color::blue, nullptr, nullptr);
         glez::draw::outlined_string(100, 120, "Testing", font, glez::color::white, glez::color::black, nullptr, nullptr);
+        glez::draw::circle(100, 100, 60, glez::color::red, 1, 5);
+        glez::draw::rect_outline(100, 200, 200, 200, glez::color::black, 4);
+        glez::draw::line(100, 100, 200, 200, glez::color::black, 8);
+        glez::draw::line(200, 200, 0, 200, glez::color::black, 8);
+        
+        // Debug stuff
+        glez::draw::rect(400, 400, 10, 10, glez::color::white);
+        glez::draw::rect_outline(400, 400, 10, 10, glez::color::black, 1);
+        glez::draw::rect_outline(402, 402, 6, 6, glez::color::black, 1);
+        glez::draw::line(400, 410, 10, 0, glez::color::green, 1);
+        glez::draw::line(400, 410, 0, 10, glez::color::green, 1);
+        
+        /*for (int i = 0; i < 1080; i += 3)
+        {
+            for (int j = 0; j < 1920; j += 3)
+            {
+                glez::draw::line(j, 0, 0, 1080, glez::color::black, 1);
+            }
+            glez::draw::line(0, i, 1920, 0, glez::color::red, 1);
+        }*/
+        
+        //glez::draw::circle(405, 405, 5, glez::color::red, 1, 10);
+        
         
         glez::end();
               
