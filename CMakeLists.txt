@@ -4,13 +4,16 @@ endif()
 set(CMAKE_BUILD_TYPE_VALUES "Debug;Release" CACHE INTERNAL "List of supported build")
 set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS ${CMAKE_BUILD_TYPE_VALUES})
 
-cmake_minimum_required(VERSION 3.0)
-project(example LANGUAGES C VERSION 0.0.1)
+SET(CMAKE_FIND_PACKAGE_SORT_ORDER NATURAL)
+SET(CMAKE_FIND_PACKAGE_SORT_DIRECTION DEC)
 
-find_package(glez REQUIRED)
+cmake_minimum_required(VERSION 3.0)
+project(example VERSION 0.1.0)
+
+find_package(glez REQUIRED 0.1.0)
 find_package(xoverlay REQUIRED)
 
-add_executable(${PROJECT_NAME} example.c)
+add_executable(${PROJECT_NAME} example.cpp)
 
 get_target_property(xoverlay_INCLUDE_DIRS xoverlay INTERFACE_INCLUDE_DIRECTORIES)
 get_target_property(glez_INCLUDE_DIRS glez INTERFACE_INCLUDE_DIRECTORIES)
